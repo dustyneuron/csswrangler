@@ -16,7 +16,7 @@ Beware - very rough at the mo, needs work!
         '  /* blah */',
         '}',
         '/* blah */',
-        'my-div h1 {',
+        'body h1 {',
         '  color: red;',
         '}',
        ].join('\n');
