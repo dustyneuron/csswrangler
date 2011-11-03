@@ -13,11 +13,13 @@ Beware - very rough at the mo, needs work!
         '/* blah */',
         'p {',
         '  text-align: center;',
+        '  color: blue;',
         '  /* blah */',
         '}',
         '/* blah */',
         'body h1 {',
         '  color: red;',
+        '  font-weight: bold;',
         '}',
        ].join('\n');
 
@@ -37,3 +39,13 @@ Beware - very rough at the mo, needs work!
 
     tree.findAll('comment').forEach(function (n) { n.remove();});
     
+### E.g. changing properties:
+
+    var black = new csswrangler.Color('#000');
+    tree.forEachDeclaration('color', function (property, value) {
+            value.replaceWithNode(black);
+        }).
+        forEachDeclaration('font-weight', function (property, value) {
+            property.replaceWith('font-size');
+            value.replaceWith('large');
+        });
