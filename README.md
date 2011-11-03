@@ -22,24 +22,18 @@ Beware - very rough at the mo, needs work!
        ].join('\n');
 
     var tree = csswrangler.parse(css);
-    console.log(tree.print() === css);
+    
+    var assert = require('assert');
+    assert.ok(tree.print() === css);
 
 ### E.g. adding scoping:
 
-    tree = csswrangler.parse(css);
     var selector = new csswrangler.Selector('.my-class');
     tree.findAll('whole_selector').forEach(function (whole_selector) {
         whole_selector.insertAfterSelectors(['*', 'html', 'body'], selector);
     });
-    console.log(tree.print());
 
 ### E.g. stripping comments:
 
-    tree = csswrangler.parse(css);
     tree.findAll('comment').forEach(function (n) { n.remove();});
-    console.log(tree.print());
-
-
-
-
-
+    
