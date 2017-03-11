@@ -49,3 +49,7 @@ Beware - very rough at the mo, needs work!
             property.replaceWith('font-size');
             value.replaceWith('large');
         });
+
+## License
+
+MIT License
